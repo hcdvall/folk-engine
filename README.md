@@ -1,1 +1,1 @@
-# FolkEngine - A simple 2d game engine using SDL
+# Folke - A simple 2d game engine using SDL
