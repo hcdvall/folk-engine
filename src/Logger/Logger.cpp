@@ -2,6 +2,8 @@
 #include <iostream>
 #include <ctime>
 
+std::vector<LogEntry> Logger::messages;
+
 std::string Logger::GetCurrentTime()
 {
     std::time_t now = std::time(nullptr);
