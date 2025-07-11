@@ -49,15 +49,15 @@ class Entity
 ////////////////////////////////////////////////////////////////////////////////
 // The system processes entities that contain a specific signature
 ////////////////////////////////////////////////////////////////////////////////
-class System
+class ECS_System
 {   
     private:
         Signature componentSignature;
         std::vector<Entity> entities;
     
     public:
-        System() = default;
-        virtual ~System() = default;
+        ECS_System() = default;
+        virtual ~ECS_System() = default;
 
         void AddEntityToSystem(Entity entity);
         void RemoveEntityFromSystem(Entity entity);
@@ -75,7 +75,7 @@ class Registry
 };
 
 template <typename TComponent>
-void System::RequireComponent()
+void ECS_System::RequireComponent()
 {
     const auto componentId = Component<TComponent>::GetId();
     componentSignature.set(componentId);

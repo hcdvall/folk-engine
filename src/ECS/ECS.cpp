@@ -6,33 +6,26 @@ int Entity::GetId() const
     return id;
 };
 
-void System::AddEntityToSystem(Entity entity)
+void ECS_System::AddEntityToSystem(Entity entity)
 {
     entities.push_back(entity);
 }
 
-void System::RemoveEntityFromSystem(Entity entity)
+void ECS_System::RemoveEntityFromSystem(Entity entity)
 {
-    entities.erase(std::remove_if(entities.begin(), entities.end(), [&entity](Entity other){
-        return entity.GetId() == other.GetId();
-    }), entities.end());
-
-    for (Entity e : entities)
-    {
-        if (entity.GetId() == e.GetId())
+    entities.erase(std::remove_if(entities.begin(), entities.end(), [&entity](Entity other)
         {
-            entities.erase(entity);
-            break;
+        return entity.GetId() == other.GetId();
         }
-    }
+    ), entities.end());
 }
 
-std::vector<Entity> System::GetSystemEntities() const
+std::vector<Entity> ECS_System::GetSystemEntities() const
 {
     return entities;
 }
 
-const Signature& System::GetComponentSignature() const
+const Signature& ECS_System::GetComponentSignature() const
 {
     return componentSignature;
 }

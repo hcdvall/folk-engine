@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "../Logger/Logger.h"
 #include "../ECS/ECS.h"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
 
 #include <iostream>
 
@@ -38,8 +38,8 @@ void Game::Initialize()
         SDL_WINDOW_BORDERLESS
     );
 
-    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-
+    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+    
     if (!window)
     {
         Logger::Error("Error creating SDL window.");
