@@ -59,7 +59,6 @@ void Game::Initialize()
     }
 
     isRunning = true;
-
 }
 
 void Game::ProcessInput()
